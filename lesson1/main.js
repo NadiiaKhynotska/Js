@@ -1,0 +1,42 @@
+let str = 'hello';
+console.log(str);
+let str2 = 'owu';
+console.log(str2);
+let str3 = 'com';
+console.log(str3);
+let num = 1;
+console.log(num);
+let num2 = 10;
+console.log(num2);
+let num3 = -999;
+console.log(num3);
+let num4 = 123;
+console.log(num4);
+let pi = 3.14;
+console.log(pi);
+let num5 = 2.7;
+console.log(num5);
+let num6 = 16;
+console.log(num6);
+let boolean = true;
+console.log(boolean);
+let boolean2 = false;
+console.log(boolean2);
+
+let firstName = 'Nadiia';
+let middleName = 'Ivanivna';
+let lastName = 'Khynotska';
+let person = `${firstName} ${middleName} ${lastName}`;
+console.log(person);
+
+let a = 100;
+console.log(typeof a);
+let b = '100';
+console.log(typeof b);
+let c = true;
+console.log(typeof c);
+
+ let name = prompt('Введіть ваше імя');
+let age = prompt('Який ваш вік?');
+let  user = `${name} ${age} років`;
+console.log(user);

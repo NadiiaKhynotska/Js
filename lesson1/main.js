@@ -1,5 +1,5 @@
-let str = 'hello';
-console.log(str);
+let str1 = 'hello';
+console.log(str1);
 let str2 = 'owu';
 console.log(str2);
 let str3 = 'com';

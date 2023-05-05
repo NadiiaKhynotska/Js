@@ -32,34 +32,30 @@ let book3 = {
     genre: 'Modern prose',
 }
 
-// - Створити 3 об'єкти які описують книги. Поля об'єкту : title ,pageCount, genre, authors. Поле "автори" - являється  масивом. Кожен автор має поля name та age.
+// - Створити 3 об'єкти які описують книги. Поля об'єкту : title ,pageCount, genre, authors. Поле "автори" - являється
+// масивом. Кожен автор має поля name та age.
 
 let book4 = {
     title: 'Deception Point',
     pageCount: 560,
     genre: 'Mystical detective',
-    authors: {
-        name: 'Dan Brown',
-        age: 59
-    }
+    authors: [
+        {name: 'Dan Brown', age: 59}
+    ]
 }
 let book5 = {
     title: 'The Churchill Factor',
     pageCount: 730,
     genre: 'Political figures',
-    authors: {
-        name: 'Boris Johnson',
-        age: 60
-    }
+    authors: [{name: 'Boris Johnson', age: 60}
+    ]
 }
 let book6 = {
     title: 'Три товариші',
     pageCount: 679,
     genre: 'Classical prose',
-    authors: {
-        name: 'Еріх Марія Ремарк',
-        age: 72
-    }
+    authors: [{name: 'Еріх Марія Ремарк', age: 72}
+    ]
 }
 // - Створити масив з 10 об'єктами які описують сутніть "користувач". Поля: name, username,password. Вивести в консоль пароль кожного користувача
 
@@ -132,9 +128,9 @@ console.log(users[9].password);
 //     Якщо змінна x не дорівнює нулю, виведіть 'Вірно', інакше виведіть 'Невірно'. Перевірте  скрипт при a, що дорівнює 1, 0, -3
 let x = -3;
 if (x = 0) {
-    console.log('true')
-} else {
     console.log('not true')
+} else {
+    console.log('true')
 }
 
 if (x = 0 || 1 || -3) {
@@ -147,25 +143,29 @@ if (x = 0 || 1 || -3) {
 // - Дано змінну time яка рівна числу від 0 до 59. Потрібно написати код, який перевірить, до якої четверті години попадає число
 // (в першу, другу, третю или четверту частину години).
 let time = 34;
-if (time <= 15) {
+if (time > 0 && time <= 15) {
     console.log('first quarter')
 } else if (time > 15 && time <= 30) {
     console.log('second quarter')
 } else if (time > 30 && time <= 45) {
     console.log('third quarter')
-} else {
+} else if (time > 45 && time <= 59) {
     console.log('fourth quarter')
+} else {
+    console.log('invalid value')
 }
 
 // - У змінній day дано якесь число від 1 до 31. Потрібно визначити, у яку половину(декаду) місяця потрапляє це число (у першу, другу чи третю).
 
 let day = 23;
-if (day <= 10) {
+if (day > 0 && day <= 10) {
     console.log('the first decade of the month')
 } else if (day > 10 && day <= 20) {
     console.log('the second decade of the month')
-} else {
+} else if (day > 20 && day <= 31) {
     console.log('the third decade of the month')
+} else {
+    console.log('invalid value')
 }
 
 
@@ -204,12 +204,16 @@ switch (dayNam) {
 //         Потрібно знайти та вивести максимальне число з тих двох .
 //         Також потрібно врахувати коли введені рівні числа.
 
+
 let a = +prompt('Enter the number');
-let b = +prompt('Enter the number');
-if ((a - b) >= 0) {
-    console.log(a)
+let b = +prompt('Enter The number');
+
+if (a === b) {
+    console.log(`Numbers are equal - ${a}`)
+} else if (a > b) {
+    console.log(`The first number ${a} ia bigger`)
 } else {
-    console.log(b)
+    console.log(`The second number ${b} is bigger`)
 }
 
 //
@@ -218,13 +222,11 @@ if ((a - b) >= 0) {
 //         (хибноподібні, тобто приводиться до false)
 //
 
-let x1
+let x1 = 453
 if (!!x1 === !!0 || !!'' || !!undefined || !!null) {
     x1 = 'default';
-    console.log(x1)
-} else{
-    console.log(x1)
 }
+console.log(x1)
 // console.log(!!0);
 // console.log(!!null);
 // console.log(!!undefined);
@@ -243,21 +245,21 @@ let coursesAndDurationArray = [
     {title: 'FullStack', monthDuration: 7},
     {title: 'Frontend', monthDuration: 4}
 ];
-if(coursesAndDurationArray[0].monthDuration > 5){
+if (coursesAndDurationArray[0].monthDuration > 5) {
     console.log('Super')
 }
-if(coursesAndDurationArray[1].monthDuration > 5){
+if (coursesAndDurationArray[1].monthDuration > 5) {
     console.log('Super')
 }
-if(coursesAndDurationArray[2].monthDuration > 5){
+if (coursesAndDurationArray[2].monthDuration > 5) {
     console.log('Super')
 }
-if(coursesAndDurationArray[3].monthDuration > 5){
+if (coursesAndDurationArray[3].monthDuration > 5) {
     console.log('Super')
 }
-if(coursesAndDurationArray[4].monthDuration > 5){
+if (coursesAndDurationArray[4].monthDuration > 5) {
     console.log('Super')
 }
-if(coursesAndDurationArray[5].monthDuration > 5){
+if (coursesAndDurationArray[5].monthDuration > 5) {
     console.log('Super')
 }

@@ -293,102 +293,139 @@ let books = [
 
 ]
 // -знайти наібльшу книжку.
-let valuePageCount = [];
-for (let j = 0; j < books.length; j++) {
-    const book = books[j];
-    valuePageCount[j] = book.pageCount;
-}
-// Знаходимо найбільше значення кількості сторінок
-let p = 0;
-for (let j = 0; j < valuePageCount.length; j++) {
-    const pages = valuePageCount[j];
-    if (pages > p) {
-        p = pages;
+let result = books[0];
+for (const book of books) {
+    if(book.pageCount >result.pageCount){
+        result = book;
     }
 }
-// шукаю книгу в якій є поле з кількістю сторінок що  === р
-for (let j = 0; j < books.length; j++) {
-    const book = books[j];
-    if (book.pageCount === p) {
-        console.log(book);
-    }
-}
-console.log(p);
-console.log(valuePageCount);
+console.log(result);
+
+
+// let valuePageCount = [];
+// for (let j = 0; j < books.length; j++) {
+//     const book = books[j];
+//     valuePageCount[j] = book.pageCount;
+// }
+// // Знаходимо найбільше значення кількості сторінок
+// let p = 0;
+// for (let j = 0; j < valuePageCount.length; j++) {
+//     const pages = valuePageCount[j];
+//     if (pages > p) {
+//         p = pages;
+//     }
+// }
+// // шукаю книгу в якій є поле з кількістю сторінок що  === р
+// for (let j = 0; j < books.length; j++) {
+//     const book = books[j];
+//     if (book.pageCount === p) {
+//         console.log(book);
+//     }
+// }
+// console.log(p);
+// console.log(valuePageCount);
 
 // - знайти книжку/ки з найбільшою кількістю жанрів
-// Свторюю масив і з значеннями жанрів із масиву книг
-let genres = [];
-for (let j = 0; j < books.length; j++) {
-    const book = books[j];
-    genres[j] = book.genre;
-}
-// Знаходжу найбільшу довжину вкладеного масиву у масиві жанри
-let genreCount = 0;
-for (let j = 0; j < genres.length; j++) {
-    const genre = genres[j];
-    if (genre.length > genreCount) {
-        genreCount = genre.length;
+
+let resultGenre = books[0];
+for (const book of books) {
+    if( book.genre.length > resultGenre.genre.length){
+        resultGenre = book
     }
 }
-// знаходжу ту книгу у якої є поле жанри з кількістю яка дорівнює genreCount
-for (let j = 0; j < books.length; j++) {
-    const book = books[j];
-    if (book.genre.length === genreCount) {
-        console.log(book);
-    }
-}
+console.log(resultGenre);
+//
+// // Свторюю масив і з значеннями жанрів із масиву книг
+// let genres = [];
+// for (let j = 0; j < books.length; j++) {
+//     const book = books[j];
+//     genres[j] = book.genre;
+// }
+// // Знаходжу найбільшу довжину вкладеного масиву у масиві жанри
+// let genreCount = 0;
+// for (let j = 0; j < genres.length; j++) {
+//     const genre = genres[j];
+//     if (genre.length > genreCount) {
+//         genreCount = genre.length;
+//     }
+// }
+// // знаходжу ту книгу у якої є поле жанри з кількістю яка дорівнює genreCount
+// for (let j = 0; j < books.length; j++) {
+//     const book = books[j];
+//     if (book.genre.length === genreCount) {
+//         console.log(book);
+//     }
+// }
 
 // - знайти книжку/ки з найдовшою назвою
-// створюю масив із назв книг
-let titles = [];
-for (let j = 0; j < books.length; j++) {
-    const book = books[j];
-    titles[j] = book.title;
-}
-// знаходжу найдовшу назву
-let longestTitle = 0
-for (let j = 0; j < titles.length; j++) {
-    const title = titles[j];
-    if (title.length > longestTitle) {
-        longestTitle = title.length;
+
+let bookLongestTitle = books[0];
+for (const book of books) {
+    if( book.title.length > bookLongestTitle.title.length){
+        bookLongestTitle = book;
     }
 }
-// знаходжу книгу з найдовшою назвою
-for (let j = 0; j < books.length; j++) {
-    const book = books[j];
-    if (book.title.length === longestTitle) {
-        console.log(book);
-    }
-}
+console.log(bookLongestTitle);
+
+// // створюю масив із назв книг
+// let titles = [];
+// for (let j = 0; j < books.length; j++) {
+//     const book = books[j];
+//     titles[j] = book.title;
+// }
+// // знаходжу найдовшу назву
+// let longestTitle = 0
+// for (let j = 0; j < titles.length; j++) {
+//     const title = titles[j];
+//     if (title.length > longestTitle) {
+//         longestTitle = title.length;
+//     }
+// }
+// // знаходжу книгу з найдовшою назвою
+// for (let j = 0; j < books.length; j++) {
+//     const book = books[j];
+//     if (book.title.length === longestTitle) {
+//         console.log(book);
+//     }
+// }
 
 // - знайти книжку/ки які писали 2 автори
-// свтоюю масив із авторами
-let authors = [];
-for (let j = 0; j < books.length; j++) {
-    const book = books[j];
-    authors[j] = book.authors;
+let bookTwoAuthors = [];
+for (const book of books) {
+    if( book.authors.length === 2){
+        bookTwoAuthors[bookTwoAuthors.length] = book;
+    }
 }
+console.log(bookTwoAuthors);
 
-// знаходжу в кладений масив із набільшою довжиною
-let longestAuthorsList = 0;
-for (let j = 0; j < authors.length; j++) {
-    let authorsList = authors[j];
-    if (authorsList.length > longestAuthorsList) {
-        longestAuthorsList = authorsList.length;
-    }
-}
-// знаходжу книгу у якої значення ключа автори дорівнює longestAuthorsList
-for (let j = 0; j < books.length; j++) {
-    const book = books[j];
-    if (book.authors.length === longestAuthorsList) {
-        console.log(book);
-    }
-}
+// // свтоюю масив із авторами
+// let authors = [];
+// for (let j = 0; j < books.length; j++) {
+//     const book = books[j];
+//     authors[j] = book.authors;
+// }
+//
+// // знаходжу в кладений масив із набільшою довжиною
+// let longestAuthorsList = 0;
+// for (let j = 0; j < authors.length; j++) {
+//     let authorsList = authors[j];
+//     if (authorsList.length > longestAuthorsList) {
+//         longestAuthorsList = authorsList.length;
+//     }
+// }
+// // знаходжу книгу у якої значення ключа автори дорівнює longestAuthorsList
+// for (let j = 0; j < books.length; j++) {
+//     const book = books[j];
+//     if (book.authors.length === longestAuthorsList) {
+//         console.log(book);
+//     }
+// }
 // - знайти книжку/ки які писав 1 автор
+let bookOneAuthor = [];
 for (let j = 0; j < books.length; j++) {
     const book = books[j];
     if (book.authors.length === 1) {
-        console.log(book);
+        bookOneAuthor[bookOneAuthor.length] = book;
     }
 }
+console.log(bookOneAuthor);

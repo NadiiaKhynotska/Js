@@ -29,6 +29,10 @@ const deleteCharacters = (str, n) => {
 let str1 = 'Кожен мисливець бажає знати де сидить фазан';
 deleteCharacters(str1, 5);
 
+const deleteCharacter2 =(str, n)  => {
+    document.write(`<p>${ str.split(' ').filter(word => word.length === n ).join(' ')}</p>`)
+}
+deleteCharacter2(str1, 5);
 // - Напишіть функцію insert_dash(str), яка приймає рядок str як аргумент і вставляє тире (-) між словами. При цьому всі
 // символи рядка необхідно перевести у верхній регістр.
 //     let str = "HTML JavaScript PHP";
@@ -124,6 +128,13 @@ const capitalize = str => {
 
 console.log(capitalize('яка повертає рядок, у якому кожне слово починається з великої літери'));
 console.log(capitalize('Створити функцію валідатор для адрес електронної пошти'));
+
+const capitalize2 = str => {
+
+    return str.split(' ').map(value => value.slice(0,1).toUpperCase() + value.slice(1)).join(' ');
+}
+console.log(capitalize2('яка повертає рядок, у якому кожне слово починається з великої літери'));
+
 
 
 console.log(' - Створити функцію-валідатор для адрес електронної пошти. Перевірка повинна включати в себе')

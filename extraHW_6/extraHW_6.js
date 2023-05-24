@@ -55,7 +55,7 @@ firstLetterUp('абабагаламага');
 const normaliseStr = str => {
     for (let i = 0; i < str.length; i++) {
         if (str[i] === '-' || str[i] === '.' || str[i] === '_') {
-            return str.replaceAll(str[i], ' ');
+            return str.replace(str[i], ' ').replaceAll(str[i],'');
         }
     }
 }
@@ -71,9 +71,9 @@ const normaliseStr2 = str => {
     return str
 }
 //
-let n1 = 'Harry..Potter'
-let n2 = 'Ron---Whisley'
-let n3 = 'Hermione__Granger'
+let n1 = 'Harry...........Potter'
+let n2 = 'Ron----------Whisley'
+let n3 = 'Hermione__________Granger'
 console.log(normaliseStr(n1));
 console.log(normaliseStr(n2));
 console.log(normaliseStr(n3));

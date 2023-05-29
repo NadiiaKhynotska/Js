@@ -82,6 +82,13 @@ function Car(model, manufactured, yearOfManufactured, maxSpeed, engineVolume) {
         maximum speed - ${this.maxSpeed}
         engine volume - ${this.engineVolume}`)
     };
+    // this.info = function (){
+    //     for (let key in this){
+    //         if(typeof  this[key] === "function") {
+    //             continue;
+    //         }
+    //         console.log(`${key} - ${this[key]}`);
+    //     }
     this.increaseMaxSpeed = function (newSpeed) {
         console.log(this.maxSpeed = newSpeed);
     };

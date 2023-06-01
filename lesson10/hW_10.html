@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hW_10</title>
+    <style>
+        .form-wrap{
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+        }
+        .form-wrap>input{
+            margin-bottom: 5px;
+            height: 20px;
+        }
+        button{
+            height: 29px;
+        }
+        .bloc{
+            height: 100px;
+            width: 200px;
+            border: 2px solid silver;
+            margin :5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .bloc>p{
+            padding: 0;
+            margin: 0 0 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <form  name="form1" class="form-wrap">
+        <input type="text" name="firstname" placeholder="firstname" required>
+        <input type="text" name="surname" placeholder="surname" required>
+        <input type="number" name="age" placeholder="age" required>
+        <button>Create div</button>
+    </form>
+
+    <div class="bloc">  </div>
+
+<script src='hW_10.js'></script>
+</body>
+</html>

@@ -21,26 +21,36 @@
 // ==========================
 // є сторінка, на якій є блок, я кому знаходиьтся цифра. написати код, який при кожному перезавантажені сторінки буде додавати до неї +1
 //
-// let numberBloc = document.getElementsByClassName('bloc')[0]
-//
-// window.onload = function (e) {
-//     const count = +numberBloc.textContent;
-//     const strKey = "num"
-//     if (!localStorage.getItem(strKey)) {
-//         localStorage.setItem(strKey, count)
-//     }else {
-//         let newCount = +localStorage.getItem(strKey)
-//         numberBloc.textContent = newCount
-//         localStorage.setItem(strKey, ++newCount)
-//
-//     }
-//
-// }
-// ==========================
+let numberBloc = document.getElementsByClassName('bloc')[0]
+let count = localStorage.getItem('count') || 0
+let newCount = +count + 1
+numberBloc.innerText = newCount
+localStorage.setItem('count',newCount)
+
+
+// // ==========================
 // Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховще, в масив sessions зберігається
 // інформація про дату та час відвідування сторінки. Є ще сторінка sessions.html (назва довільна), при відвідуванні
 // якої потрібно відмалювати всю інформацію про відвідування сторінки index.html. Інфу НЕ виводити в консоль, а
 // побудувати дом структуру під кожну сессію
+// convertMs(ms) {
+//     const second = 1000;
+//     const minute = second * 60;
+//     const hour = minute * 60;
+//     const day = hour * 24;
+//
+//     const days = this.pad(Math.floor(ms / day));
+//     const hours = this.pad(Math.floor((ms % day) / hour));
+//     const minutes = this.pad(Math.floor(((ms % day) % hour) / minute));
+//     const seconds = this.pad(
+//         Math.floor((((ms % day) % hour) % minute) / second));
+//
+//     return { days, hours, minutes, seconds };
+// }
+//
+// pad(value) {
+//     return String(value).padStart(2, '0');
+// }
 
 // =========================
 //     зробити масив на 100 об'єктів та дві кнопки prev next

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hW_10.5</title>
+    <style>
+        #text {
+            height: 200px;
+            width: 200px;
+            background-color: crimson;
+
+        }
+    </style>
+</head>
+<body>
+
+<div id="text"></div>
+
+<button id="btn"> Click me</button>
+
+
+<script>
+    // - Створити довільний елемент з id = text та створити кнопку.Використовуючи JavaScript, зробіть так, щоб
+    // при натисканні на кнопку зникав елемент з id="text".
+    const btn = document.getElementById('btn');
+    const block = document.getElementById('text')
+    const btn2 = document.createElement('button');
+
+    btn.onclick = function () {
+        // ==========додання умови що при повторному кліку блок буде зявлятись знову======
+
+        block.style.display = block.style.display === 'none' ? 'block' : 'none';
+
+        // if (block.style.display === 'none') {
+        //     block.style.display = 'block';
+        // } else {
+        //     block.style.display = 'none';
+        // }
+
+
+        // ============спосіб з доданням додаткової кнопки================
+        // block.style.display = 'none';
+        // btn.style.display = 'none';
+        //
+        // btn2.innerText = 'Click me again';
+        // btn2.style.display = 'block'
+        // document.body.appendChild(btn2);
+    }
+
+    // btn2.onclick = function (){
+    //     block.style.display = 'block'
+    //     btn.style.display = 'block'
+    //     btn2.style.display = 'none'
+    // }
+</script>
+</body>
+</html>

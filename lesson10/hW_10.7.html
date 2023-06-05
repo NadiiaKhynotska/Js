@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hW_10.7</title>
+    <style>
+
+        table, tr, td {
+            border: 1px solid white;
+            border-collapse: collapse;
+        }
+
+        tr, td {
+            background-color: #96D4D4;
+
+        }
+
+        td {
+            width: 50px;
+            text-align: center;
+        }
+
+        tr {
+            height: 35px;
+        }
+    </style>
+</head>
+<body>
+<form name="creator">
+    <input type="number" placeholder="Enter number of rows" name="row" required>
+    <input type="number" placeholder="Enter number of data" name="column" required>
+    <input type="text" placeholder="Enter content of cell" name="content" required>
+    <button>Create the table</button>
+</form>
+<!--<button id="clean-table">Clean the table</button>-->
+
+<script>
+
+    const form = document.creator;
+
+    const table = document.createElement('table')
+
+    form.onsubmit = function (e) {
+        e.preventDefault();
+
+
+        for (let i = 0; i < this.row.value; i++) {
+            let row = document.createElement('tr')
+
+            for (let i = 0; i < this.column.value; i++) {
+                let column = document.createElement('td')
+
+                column.innerText = this.content.value
+                row.appendChild(column)
+            }
+            table.appendChild(row)
+        }
+        document.body.appendChild(table)
+
+    }
+
+
+    // const form = document.forms.creator;
+    //
+    // form.onsubmit = function (e) {
+    //     e.preventDefault();
+    //     const table = document.createElement('table');
+    //
+    //     for (let i = 0; i < this.row.value; i++) {
+    //         console.log('creator')
+    //         const tr = document.createElement('tr');
+    //         for (let j = 0; j < this.column.value; j++) {
+    //             const td = document.createElement('td');
+    //             td.innerText = this.content.value;
+    //             tr.appendChild(td);
+    //         }
+    //         table.appendChild(tr);
+    //     }
+    //     document.body.appendChild(table);
+    // }
+
+    // *** Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
+    //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
+    // (Додатковачастина для завдання)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hW_10.3_sesion</title>
+    <style>
+        body{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .wrapper {
+            height: 50px;
+            width: 150px;
+            padding: 5px;
+            margin: 10px;
+            border: 1px solid silver;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    const session = localStorage.getItem('date')
+    const sessionArr = session ? JSON.parse(session) : [];
+
+    for (const session of sessionArr) {
+        const wrapper = document.createElement('div')
+        wrapper.classList.add('wrapper')
+
+        const date = document.createElement('div')
+        const time = document.createElement('div')
+
+        const dateObj = formatDate(session.date)
+        console.log(dateObj);
+
+        date.innerText = `Date : ${dateObj.DD} - ${dateObj.MM} - ${dateObj.YY}`;
+        time.innerText = `Time : ${dateObj.hh}:${dateObj.mm}:${dateObj.ss}`;
+
+        wrapper.append(date, time);
+        document.body.appendChild(wrapper);
+
+    }
+
+    function formatDate(date) {
+        const dateObj = new Date(date);
+        const YY = dateObj.getFullYear().toString();
+        const MM = (dateObj.getMonth() + 1).toString();
+        const DD = dateObj.getDate().toString();
+        const hh = dateObj.getHours().toString();
+        const mm = dateObj.getMinutes().toString();
+        const ss = dateObj.getSeconds().toString();
+        return {
+            YY: YY,
+            MM: MM.length < 2 ? `0${MM}` : MM,
+            DD: DD.length < 2 ? `0${DD}` : DD,
+            hh: hh.length < 2 ? `0${hh}` : hh,
+            mm: mm.length < 2 ? `0${mm}` : mm,
+            ss: ss.length < 2 ? `0${ss}` : ss,
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

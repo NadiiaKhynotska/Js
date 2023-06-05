@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hW_10.8</title>
+    <style>
+        div{
+            height: 200px;
+            width: 300px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            border: 2px solid silver;
+            border-radius: 9px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <span id="holder"> 100 </span> <span> grn</span>
+</div>
+
+
+<script>
+    // *** (подібне було вище, але...будьте уважні в другій частині) створити сторінку з довільним блоком, в середині якого є значення "100грн"
+    // при перезавантаженні сторінки до значаення додається по 10грн, але !!!
+    //     зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.
+    //     При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається
+
+
+    const time = localStorage.getItem('time');
+    let price = JSON.parse(localStorage.getItem('prise')) || 100;
+
+    let holder = document.getElementById('holder')
+
+    const currentTime = new Date().getTime();
+
+    if (currentTime - time > 10000) {
+        price += 10;
+        localStorage.setItem('prise', price.toString())
+    }
+    holder.innerText = price;
+    localStorage.setItem('time', currentTime.toString())
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hW_10.4</title>
+    <style>
+        body {
+            display: flex;
+        }
+
+        button {
+            width: 150px;
+            height: 50px;
+            margin: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        div {
+            height: 50px;
+            width: 350px;
+            border: 1px solid silver;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        div.num-element {
+            height: 40px;
+            width: 25px;
+            margin: 0 2px;
+
+
+        }
+    </style>
+</head>
+<body>
+<!--зробити масив на 100 об'єктів та дві кнопки prev next-->
+<!--при завантажені сторінки з'являються перші 10 об'єктів.-->
+<!--При натисканні next виводяться настпні 10 об'єктів-->
+<!--При натисканні prev виводяться попередні 10 об'єктів-->
+
+<button disabled='disabled' id="prev">Prev</button>
+<div id="container"></div>
+<button id="next">Next</button>
+
+<script>
+    const numArr = [];
+    for (let i = 1; i < 105; i++) {
+        numArr.push(i)
+    }
+
+    let page = 1;
+    const prev = document.getElementById('prev')
+    const next = document.getElementById('next')
+
+
+    const handler = (page, limit = 10) => {
+
+        const container = document.getElementById('container');
+
+        const startIndex = (page - 1) * limit;
+        let endIndex = page * limit;
+
+        if (endIndex > numArr.length) {
+            endIndex = numArr.length;
+            next.setAttribute('disabled', 'disabled');
+        } else {
+            next.removeAttribute('disabled');
+        }
+        if (startIndex > 0) {
+            prev.removeAttribute('disabled');
+        } else {
+            prev.setAttribute('disabled', 'disabled');
+        }
+
+        const children = [];
+
+        for (let i = startIndex; i < endIndex; i++) {
+
+            let item = numArr[i]
+
+            let element = document.createElement('div')
+            element.classList.add('num-element')
+
+            element.innerText = item
+
+            container.appendChild(element)
+
+            children.push(element);
+
+        }
+        container.replaceChildren(...children);
+    }
+
+    handler(page);
+    prev.addEventListener('click', () => handler(page -= 1));
+    next.addEventListener('click', () => handler(page += 1));
+
+</script>
+
+
+</body>
+</html>

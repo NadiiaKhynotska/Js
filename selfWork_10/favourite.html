@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>favourite</title>
+</head>
+<body>
+<div id="car"></div>
+<hr>
+<a href="selfWork_10.html">Home page </a>
+
+
+<script>
+
+    let carDiv = document.getElementById('car')
+    let cars = JSON.parse(localStorage.getItem('cars')) || [];
+    cars.forEach(car => {
+        let div = document.createElement('div');
+        div.innerText = `Model : ${car.name}   price : ${car.price}`
+        carDiv.appendChild(div);
+    })
+
+    let favCars = JSON.parse(localStorage.getItem('favourite')) || []
+
+    favCars.forEach(car => {
+
+        let favDiv = document.createElement('div')
+        favDiv.innerText = `${car.name} prise - ${car.price} USD`;
+        document.body.appendChild(favDiv);
+    })
+
+
+    // for (const car of cars) {
+    //     let h1 = document.createElement('h1')
+    //     let p = document.createElement('p')
+    //
+    //     h1.innerText = `Model : ${car.name}`
+    //     p.innerText = `Price : ${car.price}`
+    //
+    //     carDiv.append( h1 , p)
+    // }
+
+</script>
+
+</body>
+</html>

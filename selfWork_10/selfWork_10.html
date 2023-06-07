@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>selfWork_10</title>
+</head>
+
+<body>
+
+
+<form id="form" name="form">
+
+    <label for="modelCar">
+        <input type="text" id="modelCar" name="modelCar" placeholder=" entre car model" required>
+    </label>
+
+    <label for="carPrice">
+        <input type="number" id="carPrice" name="carPrice" placeholder=" entre car price" required>
+    </label>
+
+    <button> click</button>
+
+</form>
+<hr>
+<a href="favourite.html">Favourite cars</a>
+<hr>
+
+
+<script>
+
+    // const form = document.form;
+    //
+    // form.onsubmit = function (e) {
+    //     e.preventDefault();
+    //
+    //     let modelCar = form.modelCar.value;
+    //     let priceCar = form.carPrice.value;
+    //
+    //     console.log(localStorage)
+    //
+    //     let store = JSON.parse(localStorage.getItem('cars')) || [];
+    //
+    //     store.push({model: modelCar, price:priceCar});
+    //
+    //     localStorage.setItem('cars', JSON.stringify(store));
+    //
+    // }
+
+    const form = document.form
+    console.log(form)
+    let carArr = []
+
+    form.onsubmit = function (e) {
+        e.preventDefault();
+
+        let carName = form.modelCar.value;
+        let carPrice = form.carPrice.value;
+
+        let store = JSON.parse(localStorage.getItem('cars')) || [];
+
+        store.push({name: carName, price: carPrice});
+
+        localStorage.setItem('cars', JSON.stringify(store));
+
+    }
+    carArr = [...JSON.parse(localStorage.getItem('cars'))];
+    console.log(carArr)
+
+    let favCars = JSON.parse(localStorage.getItem('favourite')) || [];
+    carArr.forEach(car => {
+
+        favCars.push({name: car.name, price: car.price})
+
+        let div = document.createElement('div');
+        div.innerText = `${car.name} prise - ${car.price} USD`;
+
+        let btn = document.createElement('button');
+        btn.innerText = `Add to favourite`
+
+        btn.onclick = () => {
+            localStorage.setItem('favourite', JSON.stringify(favCars))
+            btn.disabled = true;
+        }
+
+
+        document.body.append(div, btn);
+
+    })
+</script>
+
+</body>
+</html>

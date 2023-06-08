@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>favourite_users</title>
+    <style>
+        body{
+            display: flex;
+            flex-wrap: wrap;
+            width: 50%;
+        }
+        .user-div{
+            height: 100px;
+            width: 200px;
+            border: 1px solid darkgray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 10px;
+            font-size: 19px;
+
+        }
+    </style>
+</head>
+<body>
+
+
+<script>
+    let favouriteUsers = JSON.parse(localStorage.getItem('favourite'))
+    favouriteUsers.forEach(favUser =>{
+        let userDiv = document.createElement('div');
+        userDiv.classList.add('user-div');
+        let userName = document.createElement('div');
+        let userStatus = document.createElement('div');
+        let userAge = document.createElement('div');
+
+        userName.innerText = `name : ${favUser.name}`;
+        userStatus.innerText = `status : ${favUser.status}`;
+        userAge.innerText = `age : ${favUser.age}`;
+
+        userDiv.append(userName, userAge, userStatus);
+        document.body.appendChild(userDiv);
+    })
+
+
+
+    let a = document.createElement('a')
+    a.href = 'users.html';
+    a.innerText = 'BACK TO USERS';
+    document.body.appendChild(a)
+</script>
+
+</body>
+</html>

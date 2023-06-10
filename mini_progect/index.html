@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>users</title>
+    <style>
+        .center{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .users-box{
+            width: 60%;
+            height: 80vh;
+           flex-wrap: wrap;
+        }
+        .user-box{
+            width: 35%;
+            height: 15%;
+            font-size: 28px;
+            font-weight: bold;
+            flex-direction: column;
+            border: 1px solid silver;
+            border-radius: 10px;
+            margin: 5px;
+        }
+        .wrapper{
+            width: 100%;
+        }
+        .userId-box{
+            margin: 10px;
+        }
+        button{
+            width: 100%;
+            font-size: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            background-color: #f8ede2;
+            transition: 1s;
+            font-weight: normal;
+        }
+        button:hover{
+            background-color: #f5e3d1;
+            scale: 1.2;
+            transition: 1s;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<script>
+
+    // В index.html
+    // 1 отримати масив об'єктів з endpoint`а https://jsonplaceholder.typicode.com/users
+    // 2 Вивести id,name всіх user в index.html. Окремий блок для кожного user.
+    // 3 Додати кожному блоку кнопку/посилання , при кліку на яку відбувається перехід  на сторінку user-details.html,
+    // котра має детальну інфорацію про об'єкт на який клікнули
+    // index.html - всі блоки з user - по 2 в рядок. кнопки/аосилвння розташувати під інформацією про user.
+    const usersDiv = document.createElement('div');
+
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(users => {
+            users.forEach(user => {
+                const userDiv = document.createElement('div');
+                const wrap = document.createElement('div');
+                const idDiv = document.createElement('div');
+                const nameDiv = document.createElement('div');
+                const btn = document.createElement('button');
+                const a = document.createElement('a');
+
+                usersDiv.classList.add('users-box', 'center');
+                userDiv.classList.add('user-box', 'center');
+                wrap.classList.add('wrapper', 'center');
+                idDiv.classList.add('userId-box', 'center');
+                nameDiv.classList.add('center');
+
+                idDiv.innerText = user.id;
+                nameDiv.innerText = user.name;
+                btn.innerText = `Get full information`;
+                a.href = 'users-details.html?id=' + JSON.stringify(user.id);
+
+                a.appendChild(btn);
+                wrap.append(idDiv, nameDiv);
+                userDiv.append(wrap, a);
+                usersDiv.appendChild(userDiv);
+            })
+
+            document.body.appendChild(usersDiv);
+        })
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>post-details</title>
+</head>
+<body>
+<script>
+    //
+    //         На странице post-details.html:
+    // 7 Вивести всю, без виключення, інформацію про об'єкт post на який клікнули .
+    // 8 Нижчє інформаці про пост, вивести всі коментарі поточного поста (ендпоінт  - https://jsonplaceholder.typicode.com/posts/POST_ID/comments)
+    //
+    // Стилизація проєкта -
+
+    //
+    //         post-details.html - блок з інфою про пост зверху. Коментарі - по 4 в ряд.
+    //         Всі елементи котрі характеризують users, posts, comments візуалізувати, так, щоб було видно що це блоки (дати фон. марджини і тд)
+
+    // let url = new URL(location.href)
+    // const postId = url.searchParams.get('postId')
+    let url = new URL(location.href);
+    let postId = url.searchParams.get('postId');
+    console.log(url)
+    console.log(postId)
+
+</script>
+
+</body>
+</html>

@@ -31,7 +31,7 @@ new Promise((resolve) => {
                     const commentEmail = document.createElement('h4');
                     const commentBody = document.createElement('p');
 
-                    commentsDiv.classList.add('comments-box');
+                    commentsDiv.classList.add('comments-box', 'center');
                     commentDiv.classList.add('comment-box');
 
                     console.log(comment.email)

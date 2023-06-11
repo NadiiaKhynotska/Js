@@ -1,0 +1,134 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.users-box{
+    width: 60%;
+    height: 80vh;
+    flex-wrap: wrap;
+}
+.user-box{
+    width: 35%;
+    height: 15%;
+    font-size: 28px;
+    font-weight: bold;
+    flex-direction: column;
+    border: 1px solid silver;
+    border-radius: 10px;
+    margin: 5px;
+}
+.user-wrapper{
+    width: 100%;
+}
+.userId-box{
+    margin: 10px;
+}
+.user-full-information{
+    width: 100%;
+    font-size: 20px;
+}
+button{
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #f8ede2;
+    transition: 1s;
+    font-weight: normal;
+}
+button:hover{
+    background-color: #f5e3d1;
+    scale: 1.2;
+    transition: 1s;
+}
+
+/*===================================----users-details----=======================================*/
+
+ul > li {
+    font-size: 26px;
+}
+
+.description {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0 0 0 60px;
+}
+
+.user-info-box {
+    margin: 40px;
+    display: flex;
+}
+
+ul {
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.get-post-btn {
+    width: 50%;
+    height: 35px;
+    font-size: 20px;
+}
+
+.post-box{
+    display: flex;
+    flex-wrap: wrap;
+    margin:30px ;
+}
+.post-wrapper{
+    width: 18%;
+    height:130px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.post-btn{
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+
+}
+.post-a{
+    width: 80%;
+    height: 20%;
+}
+/*=================================================================*/
+.post-info-box {
+    flex-direction: column;
+}
+
+.post-info-box > p {
+    font-size: 20px;
+    text-align: center;
+    width: 80%;
+}
+.comments-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+.comment-box{
+    width: 35%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+
+}
+.comment-box >h3,h4,p{
+    text-align: left;
+    margin: 15px 0 0;
+}
+.comment-box>h3{
+    width: 50%;
+}

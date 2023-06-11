@@ -159,7 +159,7 @@
 
                     title.innerText = post.title;
                     postBtn.innerText = 'get post details';
-                    a.href = `post-details.html?postId = ${postId}`
+                    a.href = 'post-details.html?postId=' + JSON.stringify(post.id);
 
 
                     a.appendChild(postBtn);

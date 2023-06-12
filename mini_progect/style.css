@@ -107,7 +107,7 @@ ul {
 /*==============================------post-details--------===================================*/
 .post-info-box {
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .post-info-box > p {
@@ -115,9 +115,12 @@ ul {
     text-align: center;
     width: 80%;
 }
+h2{
+    margin-top: 90px;
+}
 .comments-box{
     flex-wrap: wrap;
-    margin-top: 150px;
+    margin-top:50px;
 }
 .comment-box{
     width: 18%;

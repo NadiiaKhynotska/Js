@@ -23,23 +23,26 @@ new Promise((resolve) => {
         fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
             .then(response => response.json())
             .then(comments => {
-                console.log(comments)
+
                 const commentsDiv = document.createElement('div');
+
+                const tittle = document.createElement('h2');
+                tittle.innerText = `Comments of current post:`;
+                document.body.appendChild(tittle);
+
                 comments.forEach(comment => {
                     const commentDiv = document.createElement('div');
                     const commentTitle = document.createElement('h3');
                     const commentEmail = document.createElement('h4');
                     const commentBody = document.createElement('p');
 
+
                     commentsDiv.classList.add('comments-box', 'center');
                     commentDiv.classList.add('comment-box');
-
-                    console.log(comment.email)
 
                     commentTitle.innerText = `Title:${comment.name}`;
                     commentEmail.innerText = comment.email;
                     commentBody.innerText = comment.body;
-
 
                     commentDiv.append(commentTitle, commentEmail, commentBody);
                     commentsDiv.appendChild(commentDiv);

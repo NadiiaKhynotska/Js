@@ -1,0 +1,62 @@
+html, body {
+    font-family: sans-serif;
+    height: 100%;
+    background-color: #6394ef;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-container {
+    height: 60%;
+    width: 60%;
+    padding: 50px;
+    background-color: #0b1174;
+    border-radius: 30px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.input-container > input {
+    height: 30px;
+    width: calc(100% - 115px);
+    outline-color: white;
+    font-size: 20px;
+}
+
+
+.input-container > button{
+    background-color: #ff0000;
+    height: 36px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    width: 100px;
+}
+.input-container{
+    display: flex;
+    justify-content: space-between;
+}
+.todo-list{
+    list-style: none;
+}
+.todo-task{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.delete-btn{
+    background-color: yellow;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}

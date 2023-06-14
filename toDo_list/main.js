@@ -52,18 +52,22 @@ button.addEventListener('click', () => {
     //         list.removeChild(li);
     //
     // })
-    store = JSON.parse(localStorage.getItem('todo-task'))
-   for (const storeElement of store) {
+
 
         deleteBtn.addEventListener('click', key => {
+            store = JSON.parse(localStorage.getItem('todo-task'))
             list.removeChild(li);
-            let start = store.indexOf(storeElement)
+            let value  = (li.innerText).replace('Delete', '')
+
+            let find = store.find(item =>{
+                return item === value;
+            });
+            let start = store.indexOf(find);
 
             store.splice(start,1)
             localStorage.setItem('todo-task', JSON.stringify(store))
         })
 
-    }
 
 });
 

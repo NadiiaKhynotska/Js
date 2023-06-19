@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+
+    // - Імітуємо наповнення інтернет магазину товарами :
+    // Створити форму з наступними полями :
+    // - назва товару
+    // - кількість товару
+    // - ціна товару
+    // - картинка товару (посилання з інтернету)
+    // Зберігати товари в масив в локалсорадж. При збережені товару з форми, action не повинно відбуватись (preventDefault)
+    // створити елемент <a href='list.html'> На сторінку товарів</a>, та list.html, при переході на який відобразити на сторінці всі товари.
+    // На сторінці  list.html побудувати кнопку яка видаляє всі товари з корзини та локалстораджа.
+    //         До кожного товару додати кнопку, при кліку на яку з лс видаляється конкретний обраний  товар
+    let users = [
+        {name: 'vasya', age: 31, status: false},
+        {name: 'petya', age: 30, status: true},
+        {name: 'kolya', age: 29, status: true},
+        {name: 'olya', age: 28, status: false},
+        {name: 'max', age: 30, status: true},
+        {name: 'anya', age: 31, status: false},
+        {name: 'oleg', age: 28, status: false},
+        {name: 'andrey', age: 29, status: true},
+        {name: 'masha', age: 30, status: true},
+        {name: 'olya', age: 31, status: false},
+        {name: 'max', age: 31, status: true}
+    ];
+    const sum = users.reduce((accumulator, value) => {
+        return accumulator + value.age / users.length
+    }, 0)
+    console.log(sum);
+
+    const adultUsers = users.filter(user => {
+        return user.age >= 30
+    })
+    console.log(adultUsers);
+
+    const usersMap = users.map(user => {
+        return user.name
+    })
+    console.log(usersMap);
+
+    users.forEach(user => {
+        user.status ? user.name = user.name + ' you great' : user.name = user.name + ' you not great'
+    })
+    console.log(users);
+
+    const find = users.find(user => {
+        return user.age === 28
+    });
+    console.log(find);
+
+
+    //     =============================promises=================================
+    function getPostsById(id) {
+        const endpoint = 'https://jsonplaceholder.typicode.com'
+        const result = {
+            id,
+            name: '',
+            posts: [],
+        };
+        return new Promise((resolve) => {
+            fetch(`${endpoint}/users`)
+                .then(response => response.json())
+                .then(users => {
+                    const foundUser = users.find((user => user.id === id))
+                    result.name = foundUser.name;
+
+                    fetch(`${endpoint}/posts`)
+                        .then(response => response.json())
+                        .then(posts => {
+                            result.posts = posts.filter(post => post.userId === id)
+                            resolve(result)
+                        })
+                })
+        })
+    }
+
+    getPostsById(8).then(result => console.log(result))
+
+
+    //     ==============================async await===========================
+
+    function fetchUser(id) {
+        const endpoint = 'https://jsonplaceholder.typicode.com';
+        return fetch(`${endpoint}/users/${id}`)
+            .then(response => response.json())
+    }
+
+    // function sayHello() {
+    //     fetchUser(2).then(user => {
+    //         alert(`Hello ${user.name}`)
+    //     })
+    // }
+
+    async function sayHello() {
+        const user = await fetchUser(4);
+        alert(`Hello ${user.name}`)
+    }
+
+    sayHello();
+
+
+</script>
+
+</body>
+</html>
